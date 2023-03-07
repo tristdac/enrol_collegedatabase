@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="enrol/database2/db" VERSION="20170308" COMMENT="XMLDB file for Moodle enrol/collegedatabase"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="enrol_collegedb_teachunits" COMMENT="Teacher enrolments on units copied from the Edinburgh College views. This is the pool of potential enrolments that teachers can choose from to go through to Moodle.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" COMMENT="username of the teacher"/>
+        <FIELD NAME="unitid" TYPE="int" LENGTH="16" NOTNULL="true" SEQUENCE="false" COMMENT="732 number of the unit"/>
+        <FIELD NAME="unitshortname" TYPE="char" LENGTH="128" NOTNULL="false" SEQUENCE="false" COMMENT="shortname of the unit (for display purposes)"/>
+        <FIELD NAME="unitfullname" TYPE="char" LENGTH="257" NOTNULL="false" SEQUENCE="false" COMMENT="fullname of the unit (for display purposes)"/>
+		    <FIELD NAME="unitdescription" TYPE="char" LENGTH="276" NOTNULL="false" SEQUENCE="false" COMMENT="description of the unit (contains course information)"/>
+        <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="start date of the unit (for filtering in course overview)"/>
+        <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="end date of the unit (for filtering in course overview)"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="userid_index" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
